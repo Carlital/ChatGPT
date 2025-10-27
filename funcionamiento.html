@@ -79,7 +79,45 @@
 
       </div>
     </section>
+  
+    <section class="card" style="margin-top:24px;">
+      <header style="margin-bottom:1rem;">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>Flujo general</span>
+        </div>
+        <h2 class="fx-subtitle">Del texto a la respuesta</h2>
+      </header>
 
+      <ol class="fx-step-list">
+        <li><strong>Entrada del usuario:</strong> Escribes una pregunta o instrucción.</li>
+        <li><strong>Tokenización:</strong> El texto se divide en fragmentos (tokens) para que el modelo los entienda.</li>
+        <li><strong>Procesamiento:</strong> El modelo analiza el contexto y predice la siguiente palabra más probable.</li>
+        <li><strong>Generación:</strong> Palabra por palabra, forma una respuesta coherente.</li>
+        <li><strong>Filtrado:</strong> Se aplican verificaciones y filtros de seguridad antes de mostrar el texto final.</li>
+      </ol>
+    </section>
+
+    <section class="card" style="margin-top:24px;">
+      <header style="margin-bottom:1.25rem;">
+        <div class="badge" style="margin-bottom:.75rem;">
+          <span class="badge-dot"></span>
+          <span>Arquitectura técnica</span>
+        </div>
+
+        <h2 class="fx-subtitle">Red neuronal transformadora</h2>
+        <p class="lead" style="max-width:60ch;">
+          ChatGPT está basado en una arquitectura llamada <strong>Transformer</strong>. 
+          Esta red neuronal procesa texto en paralelo y aprende relaciones entre palabras en diferentes contextos.
+        </p>
+      </header>
+
+      <ul class="fx-step-list">
+        <li><strong>Codificador y decodificador:</strong> el modelo convierte texto en vectores numéricos y luego genera una respuesta a partir de ellos.</li>
+        <li><strong>Atención:</strong> el mecanismo de “self-attention” permite al modelo centrarse en las partes más relevantes de una frase.</li>
+        <li><strong>Entrenamiento masivo:</strong> se entrenó con grandes cantidades de texto público y datos licenciados para aprender patrones del lenguaje humano.</li>
+      </ul>
+    </section>
 
     <section class="card" style="margin-top:24px;">
       <header style="margin-bottom:1.25rem;">
@@ -168,6 +206,13 @@
             <li>No pegar información privada muy sensible en cuentas personales.</li>
             <li>Mencionar que usaste IA si el trabajo es académico y así lo pide tu institución.</li>
           </ul>
+          <p class="fx-safe-text">
+            OpenAI y otras organizaciones promueven el uso ético de la IA. 
+            ChatGPT registra las conversaciones solo para mejorar el sistema y proteger la seguridad del usuario.
+          </p>
+          <p class="fx-safe-text">
+            También existen versiones educativas, como ChatGPT EDU, con políticas de privacidad reforzadas para entornos académicos.
+          </p>
         </div>
 
         <div class="fx-safe-visual">
@@ -284,8 +329,8 @@
 
     <div class="footer-bottom">
       <p class="footer-bottom-text">
-        Escuela Superior Politécnica de Chimborazo — ESPOCH.
-        Sitio con fines educativos. No es una página oficial de OpenAI.
+        Escuela Superior Politécnica de Chimborazo — ESPOCH.<br><br>
+        Este sitio tiene fines académicos y promueve el uso ético de la inteligencia artificial.
       </p>
     </div>
   </footer>
