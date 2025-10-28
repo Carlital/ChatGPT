@@ -1785,3 +1785,21 @@ body::after {
   40%     { height: 14px; }
   70%     { height: 10px; }
 }
+
+.impact-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap; 
+}
+
+.impact-hero .lead {
+  flex: 1; 
+  text-align: justify
+}
+
+.impact-hero-image {
+  max-width: 500px;
+  width: 200%;
+  height: auto;
+}
