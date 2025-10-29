@@ -1607,148 +1607,367 @@ body::after {
   animation: mouth-talk .28s infinite;
 }
 
-.avatar-body {
-  position: absolute;
-  left: 50%;
-  top: 48px;
-  transform: translateX(-50%);
-  width: 46px;
-  height: 28px;
-  border-radius: 14px 14px 10px 10px; 
-  border: 2px solid rgba(255,255,255,.06);
-  box-shadow: 0 10px 24px rgba(0,0,0,.8);
-}
-
-.avatar-body::before {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 18px;
-  height: 10px;
-  border-radius: 0 0 10px 10px;
-  background: #f4d5c6;
-  border: 1px solid rgba(255,255,255,.2);
-  box-shadow: 0 2px 4px rgba(0,0,0,.4) inset;
-}
-
-.avatar-hair {
-  position: absolute;
-  left: 50%;
-  top: 10px;
-  transform: translateX(-50%);
-  width: 52px;
-  height: 34px;
-  border-radius: 20px 20px 16px 16px;
-  box-shadow:
-    0 12px 24px rgba(0,0,0,.8),
-    0 0 24px rgba(0,0,0,.5);
-  border: 2px solid rgba(0,0,0,.6);
-}
-
-.avatar-hair::before,
-.avatar-hair::after {
-  content: '';
-  position: absolute;
-  top: 16px;
-  width: 18px;
-  height: 18px;
-  border-radius: 12px 12px 16px 16px;
-  box-shadow:
-    0 10px 20px rgba(0,0,0,.6),
-    0 0 16px rgba(0,0,0,.4);
-  border: 2px solid rgba(0,0,0,.6);
-  background: inherit; 
-}
-
-.avatar-hair::before {
-  left: -4px;
-}
-.avatar-hair::after {
-  right: -4px;
-}
-
-.avatar-hair .bangs {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 32px;
-  height: 16px;
-  border-radius: 0 0 16px 16px;
-  background: inherit;
-  border: 2px solid rgba(0,0,0,.55);
-  border-top: 0;
-  box-shadow:
-    0 6px 12px rgba(0,0,0,.6),
-    0 0 12px rgba(0,0,0,.4);
-}
-
 /* =========================
-   VARIANTES DE AVATAR
+   AVATAR BASE
    ========================= */
 
-/* Daniela - castaño cálido, suéter amarillo suave */
-.avatar-a .avatar-hair {
-  background: radial-gradient(circle at 30% 30%, #5a3a24 0%, #2b1a10 70%);
-}
-.avatar-a .avatar-body {
-  background: linear-gradient(180deg,#fde68a,#facc15 60%,#a16207 100%);
-  border-color: rgba(250,204,21,.4);
-  box-shadow:
-    0 16px 32px rgba(0,0,0,.9),
-    0 0 24px rgba(250,204,21,.25);
-}
+    /* Cara */
+    .face {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25px;
+      height: 30px;
+      background: #FFD6A6;
+      border-radius: 48% / 55%;
+      z-index: 3; 
+    }
 
-/* Scarlet - pelo negro azulado, hoodie azul oscuro */
-.avatar-b .avatar-hair {
-  background: radial-gradient(circle at 30% 30%, #0f172a 0%, #000 70%);
-}
-.avatar-b .avatar-body {
-  background: linear-gradient(180deg,#1e3a8a,#1e40af 60%,#1e3a8a 100%);
-  border-color: rgba(30,64,175,.4);
-  box-shadow:
-    0 16px 32px rgba(0,0,0,.9),
-    0 0 24px rgba(30,64,175,.4);
-}
+    /* Ojos */
+    .eye {
+      position: absolute;
+      top: 21px;
+      width: 9px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      border: 0.1px solid #7A7979;
+      overflow: hidden;
+      z-index: 4;
+    }
+    .eye.left { left: 23px; }
+    .eye.right { right: 23px; }
 
-/* Kelly - suéter verde */
-.avatar-c .avatar-hair {
-  background: radial-gradient(circle at 30% 30%, #000000 0%, #7a5a1a 70%);
-}
-.avatar-c .avatar-body {
-  background: linear-gradient(180deg,#10a37f,#065f46 60%,#064e3b 100%);
-  border-color: rgba(6,95,70,.4);
-  box-shadow:
-    0 16px 32px rgba(0,0,0,.9),
-    0 0 24px rgba(16,163,127,.4);
-}
+    .iris {
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      width:4px;
+      height: 4px;
+      background: radial-gradient(circle at 30% 30%, #5a3b1e, #2d1a0f 70%);
+      border-radius: 50%;
+      
+    }
 
-/* Carla - suéter rosa */
-.avatar-d .avatar-hair {
-  background: radial-gradient(circle at 30% 30%, #251006 0%, #2b0a0a 70%);
-}
-.avatar-d .avatar-body {
-  background: linear-gradient(180deg,#d9288f,#951d5f 60%,#890a3f 100%);
-  border-color: rgba(217, 40, 123, 0.4);
-  box-shadow:
-    0 16px 32px rgba(0,0,0,.9),
-    0 0 24px rgba(217, 40, 137, 0.4);
-}
+    .iris::after {
+      content: '';
+      position: absolute;
+      top: 15%;
+      left: 24%;
+      width: 1px;
+      height: 1px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.9;
+      
+    }
 
-/* Katty - castaño oscuro, suéter naranja/coral */
-.avatar-e .avatar-hair {
-  background: radial-gradient(circle at 30% 30%, #1f2937 0%, #000 70%);
-}
-.avatar-e .avatar-body {
-  background: linear-gradient(180deg,#fb923c,#ea580c 60%,#9a3412 100%);
-  border-color: rgba(234,88,12,.4);
-  box-shadow:
-    0 16px 32px rgba(0,0,0,.9),
-    0 0 24px rgba(234,88,12,.3);
-}
+    /* Cejas */
+    .eyebrow {
+      position: absolute;
+      width: 6px;
+      height: 1px;
+      background: #2e1c0f;
+
+      border-radius: 4px;
+      top: 19px;
+      z-index: 4;
+    }
+    .eyebrow.left { left: 24px; transform: rotate(-5deg); }
+    .eyebrow.right { right: 24px; transform: rotate(5deg); }
+
+    .nose {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 4px;
+      background: #ffdbb5;
+      border: 1px solid #ffdbb5;
+      border-radius: 100% 100% 50% 50% / 100% 100% 70% 70%;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.7);
+      z-index: 5;
+    }
+
+    /* Boca */
+    .mouth_down {
+      position: absolute;
+      top: 39px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 11px;
+      height: 2px;
+      background: #f28b82;
+      border: 0.1px solid #b34a4a;
+      border-radius: 5% 10% 50% 50% / 1% 1% 100% 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      z-index: 6;
+    }
+
+    /*Daniela Albán*/
+
+    .avatar-a .avatar {
+      position: relative;
+      width: 65px;
+      height: 65px;
+      background: #BACAFF;
+      border-radius: 50% / 45%;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      border: 0px solid #fff;
+      overflow: hidden;
+    }
+
+    /* Cabello */
+    .avatar-a .hair {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 45px;
+      height: 80px;
+      background: hsl(23, 43%, 12%);
+      border-radius: 50% 50% 40% 40% / 65% 65% 45% 45%;
+      z-index: 1;
+    }
+
+    /* Buzo  */
+    .clothing {
+      position: absolute;
+      bottom: -29px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px; /* recortado */
+      background: #745b9c;
+      border-radius: 50% / 25%;
+      z-index: 2; 
+    }
+
+    /* Cuello verde  */
+    .inner-clothing {
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 19px;
+      background: linear-gradient(180deg, #b4d3a9, #9fbf8b);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      z-index: 2; 
+    }
+
+/*Scarlet Cayapa*/
+
+    .avatar-b .avatar {
+      position: relative;
+      width: 65px;
+      height: 65px;
+      background: #BCDFE3;
+      border-radius: 50% / 45%;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      border: 0px solid #fff;
+      overflow: hidden;
+    }
+
+    /* Cabello */
+    .avatar-b .hair {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 80px;
+      background: lab(33.91% 13.4 20.98);
+      border-radius: 50% 50% 40% 40% / 65% 65% 45% 45%;
+      z-index: 1;
+    }
+
+    /* Buzo  */
+    .avatar-b .clothing {
+      position: absolute;
+      bottom: -29px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px; /* recortado */
+      background: #33523A;
+      border-radius: 50% / 25%;
+      z-index: 2; 
+    }
+
+    /* Cuello verde  */
+    .avatar-b .inner-clothing {
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 19px;
+      background: #F6FFC2;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      z-index: 2; 
+    }
+
+/*Kelly Lema*/
+
+    .avatar-c .avatar {
+      position: relative;
+      width: 65px;
+      height: 65px;
+      background: #DBFFE2;
+      border-radius: 50% / 45%;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      border: 0px solid #fff;
+      overflow: hidden;
+    }
+
+    /* Cabello */
+    .avatar-c .hair {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 90px;
+      background:hsl(0, 22%, 17%);
+      border-radius: 50% 50% 40% 40% / 65% 65% 45% 45%;
+      z-index: 1;
+    }
+
+    /* Buzo  */
+    .avatar-c .clothing {
+      position: absolute;
+      bottom: -29px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px; /* recortado */
+      background: #745b9c;
+      border-radius: 50% / 25%;
+      z-index: 2; 
+    }
+
+    /* Cuello verde  */
+    .avatar-c .inner-clothing {
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 19px;
+      background: #95C0E8;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      z-index: 2; 
+    }
+
+
+/*Carla Lomas*/
+
+    .avatar-d .avatar {
+      position: relative;
+      width: 65px;
+      height: 65px;
+      background:#2B2B2B;
+      border-radius: 50% / 45%;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      border: 0px solid #fff;
+      overflow: hidden;
+    }
+
+    /* Cabello */
+    .avatar-d .hair {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 80px;
+      background:#FFDB00;
+      border-radius: 50% 50% 40% 40% / 65% 65% 45% 45%;
+      z-index: 1;
+    }
+
+    /* Buzo  */
+    .avatar-d .clothing {
+      position: absolute;
+      bottom: -29px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px; /* recortado */
+      background: #FF00FF;
+      border-radius: 50% / 25%;
+      z-index: 2; 
+    }
+
+    /* Cuello verde  */
+    .avatar-d .inner-clothing {
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 19px;
+      background:#FADCF8;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      z-index: 2; 
+    }
+
+
+/*Katty Moyano*/
+
+    .avatar-e .avatar {
+      position: relative;
+      width: 65px;
+      height: 65px;
+      background: #FCF0F0;
+      border-radius: 50% / 45%;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      border: 0px solid #fff;
+      overflow: hidden;
+    }
+
+    /* Cabello */
+    .avatar-e .hair {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 35px;
+      height: 47px;
+      background: #4a2e1c;
+      border-radius: 50% 50% 40% 40% / 65% 65% 45% 45%;
+      z-index: 1;
+    }
+
+    /* Buzo  */
+    .avatar-e .clothing {
+      position: absolute;
+      bottom: -29px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px; /* recortado */
+      background: #F0B13B;
+      border-radius: 50% / 25%;
+      z-index: 2; 
+    }
+
+    /* Cuello verde  */
+    .avatar-e .inner-clothing {
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 19px;
+      background:#808080;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      z-index: 2; 
+    }
+/* =========================== */
 
 
 .student-card .voice-indicator {

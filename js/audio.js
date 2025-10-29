@@ -6,9 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Espera a que el navegador cargue las voces
   function loadVoices() {
     const voices = speechSynthesis.getVoices();
-    // Busca una voz femenina en español
+    
     selectedVoice =
-      voices.find(v => v.lang.startsWith("es") && /female|mujer|Sabina|Google español/i.test(v.name)) ||
+    voices.find(v =>
+        /Google español|español (latino|latam)|español de México|Sabina|Helena|Zira|Luciana/i.test(v.name)
+      )
       voices.find(v => v.lang.startsWith("es")); // Si no encuentra una femenina, toma la primera en español
   }
 
@@ -53,8 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = selectedVoice ? selectedVoice.lang : "es-ES";
       utterance.voice = selectedVoice || null;
-      utterance.rate = 1;   // velocidad normal
-      utterance.pitch = 1.1; // tono suave y un poco más alto (voz más cálida)
+      utterance.rate = 0.96;   // velocidad normal
+      utterance.pitch = 1.6; // tono suave y un poco más alto (voz más cálida)
 
       utterance.onstart = () => {
         isPlaying = true;
