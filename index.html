@@ -4,16 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ChatGPT — Educación y Práctica Responsable</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/chatgpt_logo.png">
   <meta name="description" content="ChatGPT explicado para educación: qué es, cómo funciona, límites, buenas prácticas y papel en el aprendizaje.">
-  <script src="js/audio.js" defer></script>
 </head>
 
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Principal">
-      <a class="logo" href="index.html">
-        ChatGPT EDU
+      <a class="logo" href="index.html" aria-label="ChatGPT EDU">
+        <img src="img/chatgpt.png" alt="ChatGPT EDU" class="logo-img">
+        <span class="logo-text">ChatGPT EDU</span>
       </a>
 
       <ul class="menu" role="list">
@@ -22,6 +23,7 @@
         <li><a href="funcionamiento.html">Funcionamiento</a></li>
         <li><a href="impacto.html">Impacto</a></li>
         <li><a href="academia.html">En la Educación</a></li>
+        <li><a href="referencias.html">Referencias</a></li>
       </ul>
     </nav>
   </header>
@@ -97,47 +99,187 @@
       </div>
     </section>
 
-    <section class="intro card" style="margin-top:24px;">
-      <h2 style="color:#fff; letter-spacing:-0.03em;">¿Quién está detrás?</h2>
-      <p class="lead" style="max-width:70ch;">
-        ChatGPT es desarrollado por OpenAI, una organización de investigación en inteligencia artificial. Su objetivo declarado es construir sistemas avanzados que sean útiles, seguros y beneficiosos para la sociedad, no solo potentes técnicamente. 
-      </p>
+<section class="intro-block section-block" aria-labelledby="intro-ctx">
+  <!-- Cabecera de la sección -->
+  <header class="intro-head">
+    <h2 id="intro-ctx" class="section-title">ChatGPT en contexto</h2>
+  </header>
 
-      <h2 style="color:#fff; letter-spacing:-0.03em; margin-top:1.8rem;">¿Cómo fue entrenado?</h2>
-      <p>
-        El modelo aprende a partir de grandes volúmenes de texto, código y ejemplos producidos por personas. Después, instructores humanos revisan y ajustan respuestas para que sean más claras, útiles y seguras. A ese proceso se lo conoce como alineación.
-      </p>
+  <!-- Grid de tarjetas + video -->
+  <div class="intro-grid">
 
-      <h2 style="color:#fff; letter-spacing:-0.03em; margin-top:1.8rem;">¿Por qué se volvió tan usado?</h2>
-      <p>
-        En noviembre de 2022 se liberó una versión conversacional pública. Eso hizo que cualquier persona —sin saber programar— pudiera pedirle a una IA que resumiera un artículo, redactara un correo formal, explicara un concepto académico con ejemplos sencillos o hasta generara fragmentos de código funcional. Esa accesibilidad disparó su adopción global en educación, trabajo y creación de contenido.
-      </p>
-      <h2 style="color:#fff; letter-spacing:-0.03em; margin-top:1.8rem;">Uso educativo y responsable</h2>
-      <p>
-        En el contexto universitario, ChatGPT debe entenderse como un asistente cognitivo y no como un sustituto del pensamiento humano. 
-        En la ESPOCH promovemos su uso ético, transparente y crítico: los estudiantes pueden apoyarse en la IA para comprender temas complejos, 
-        mejorar su redacción o explorar nuevas ideas, pero siempre manteniendo la autoría y el razonamiento propio.
-      </p>
-      <p>
-        Utilizar ChatGPT de forma responsable implica reconocer cuándo fue usada la herramienta, contrastar la información que genera y aplicar el criterio académico para validar sus resultados. 
-        Así, la inteligencia artificial se convierte en una aliada del aprendizaje significativo, no en una forma de dependencia tecnológica.
-      </p>
-    </section>
+    <!-- Columna izquierda: flip-cards con imagen de fondo -->
+    <div class="intro-col">
 
-    <section class="video card" style="margin-top:24px;">
-      <h3 style="color:#fff; letter-spacing:-0.03em;">Video: ¿Qué es ChatGPT?</h3>
-      <div class="video-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/VIDEO_ID"
-          title="Introducción a ChatGPT"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
+      <!-- ¿Quién está detrás? -->
+      <article class="card feature intro-card flip" aria-live="polite">
+        <div class="flip-inner">
+          <!-- Frente -->
+          <div class="flip-face flip-front">
+            <span class="badge"><span class="badge-dot"></span> Origen</span>
+            <br></br>
+            <h3 class="intro-card-title">¿Quién está detrás?</h3>
+            <p class="intro-card-text">
+              Organización de I+D en IA con foco en utilidad y seguridad social.
+            </p>
+            <p class="intro-card-footnote">Pulsa/Toque para ver más ↺</p>
+          </div>
+          <!-- Dorso con imagen de fondo -->
+          <div
+            class="flip-face flip-back"
+            style="background-image:url('img/openai-building.png');background-size:cover;background-position:center;border-radius:var(--radius-lg);"
+          >
+            <div class="card feature" style="background:rgba(0,0,0,.45);">
+              <h3 class="intro-card-title">OpenAI · Misión</h3>
+              <p class="intro-card-text">
+                Desarrollar sistemas de IA <strong>útiles, seguros y confiables</strong>, priorizando el beneficio social por encima del rendimiento técnico aislado.
+              </p>
+              <p class="intro-card-footnote">Fuente institucional y comunicaciones públicas.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ¿Cómo fue entrenado? -->
+      <article class="card feature intro-card flip" aria-live="polite">
+        <div class="flip-inner">
+          <!-- Frente -->
+          <div class="flip-face flip-front">
+            <span class="badge"><span class="badge-dot"></span> Entrenamiento</span>
+            <br></br>
+            <h3 class="intro-card-title">¿Cómo fue entrenado?</h3>
+            <p class="intro-card-text">
+              Datos a gran escala + señales humanas para ajustar el estilo.
+            </p>
+            <p class="intro-card-footnote">Pulsa/Toque para ver más ↺</p>
+          </div>
+          <!-- Dorso con imagen de fondo -->
+          <div
+            class="flip-face flip-back"
+            style="background-image:url('img/training-dataset.png');background-size:cover;background-position:center;border-radius:var(--radius-lg);"
+          >
+            <div class="card feature" style="background:rgba(0,0,0,.45);">
+              <h3 class="intro-card-title">Pre-entrenamiento + Alineación</h3>
+              <p class="intro-card-text">
+                Aprende patrones de <em>texto y código</em> a gran escala. Y, con retroalimentación humana, se guía hacia respuestas <strong>claras, respetuosas y seguras</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ¿Por qué se hizo tan popular? -->
+      <article class="card feature intro-card flip" aria-live="polite">
+        <div class="flip-inner">
+          <!-- Frente -->
+          <div class="flip-face flip-front">
+            <span class="badge"><span class="badge-dot"></span> Adopción</span>
+            <br></br>
+            <h3 class="intro-card-title">¿Por qué se hizo tan popular?</h3>
+            <p class="intro-card-text">
+              Conversación natural: pide, explora, itera y corrige.
+            </p>
+            <p class="intro-card-footnote">Pulsa/Toque para ver más ↺</p>
+          </div>
+          <!-- Dorso con imagen de fondo -->
+          <div
+            class="flip-face flip-back"
+            style="background-image:url('img/popularity.png');background-size:cover;background-position:center;border-radius:var(--radius-lg);"
+          >
+            <div class="card feature" style="background:rgba(0,0,0,.45);">
+              <h3 class="intro-card-title">Accesibilidad = impacto</h3>
+              <p class="intro-card-text">
+                Desde 2022, cualquiera puede solicitar <em>explicaciones</em>, <em>borradores</em> o <em>ayuda práctica</em> en lenguaje cotidiano: eso la volvió útil para estudio y trabajo.
+              </p>
+              <p class="intro-card-footnote">Uso cotidiano en múltiples disciplinas.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Uso educativo y responsable -->
+      <article class="card feature intro-card flip" aria-live="polite">
+        <div class="flip-inner">
+          <!-- Frente -->
+          <div class="flip-face flip-front">
+            <span class="badge"><span class="badge-dot"></span> Buenas prácticas</span>
+            <br></br>
+            <h3 class="intro-card-title">Uso educativo y responsable</h3>
+            <p class="intro-card-text">
+              Apoyo cognitivo: comprender, resumir, mejorar redacción e idear.
+            </p>
+            <p class="intro-card-footnote">Pulsa/Toque para ver más ↺</p>
+          </div>
+          <!-- Dorso con imagen de fondo -->
+          <div
+            class="flip-face flip-back"
+            style="background-image:url('img/ethics-class.png');background-size:cover;background-position:center;border-radius:var(--radius-lg);"
+          >
+            <div class="card feature" style="background:rgba(0,0,0,.45);">
+              <h3 class="intro-card-title">Reglas ESPOCH</h3>
+              <p class="intro-card-text">
+                Mantener <strong>autoría propia</strong>, citar apoyo, validar información y evitar dependencia. La herramienta potencia el criterio, no lo reemplaza.
+              </p>
+              <p class="intro-card-footnote">Lineamientos de honestidad académica.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Columna derecha: video destacado -->
+    <aside class="intro-video-card card feature">
+      <div class="intro-video-head">
+        <div class="intro-video-badge">
+          <span class="badge-dot"></span>
+          <span>Video explicativo</span>
+        </div>
+        <h3 class="intro-video-title">¿Qué es ChatGPT?</h3>
+        <p class="intro-video-desc">Material de apoyo con fines educativos.</p>
       </div>
-      <p style="font-size:.8rem; color:var(--c-dim); margin-top:12px;">
-        Este video es material de apoyo externo seleccionado con fines educativos.
+
+      <div class="video-shell">
+        <div class="video-frame-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/RwoV5thJ54U"
+            title="Introducción a ChatGPT"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      <details class="video-accordion">
+        <summary>Qué aprenderás en 2 minutos</summary>
+        <ul class="video-points" role="list">
+          <li>Definición breve de ChatGPT y su propósito general.</li>
+          <li>Idea básica de cómo fue entrenado y por qué responde en lenguaje natural.</li>
+          <li>Usos comunes en estudio/trabajo y recordatorio de límites.</li>
+        </ul>
+      </details>
+
+      <details class="video-accordion">
+        <summary>Preguntas para reflexionar</summary>
+        <ul class="video-points" role="list">
+          <li>¿En qué tareas te apoyaría sin reemplazar tu juicio?</li>
+          <li>¿Qué validarías siempre (datos, fuentes, sesgos)?</li>
+        </ul>
+      </details>
+
+      <div class="video-cta" style="display:flex;flex-wrap:wrap;gap:.5rem;margin:.25rem 0 0">
+        <a class="btn ghost" href="capacidades.html">Ver capacidades</a>
+        <a class="btn ghost" href="funcionamiento.html">Cómo funciona</a>
+      </div>
+
+
+      <p class="intro-video-footnote">
+        La herramienta no piensa por ti: potencia tu criterio si la usas con honestidad académica.
       </p>
-    </section>
+    </aside>
+
+  </div>
+</section>
 
     <section class="timeline" id="timeline" aria-labelledby="timeline-title" style="margin-top:24px;">
       <div class="timeline-header" id="timeline-title">Hitos del modelo</div>
@@ -145,43 +287,59 @@
       <div class="timeline-rail" aria-hidden="true"></div>
 
       <div class="timeline-items">
-        <article class="timeline-item" aria-label="Lanzamiento público, 2022">
-          <div class="timeline-icon">2022</div>
-          <div class="timeline-dot"></div>
-          <strong>Lanzamiento público</strong>
-          <span>
-            Primera versión abierta al público general. Millones de usuarios prueban conversación con IA.
-          </span>
+        <article class="timeline-item" data-year="2022">
+          <div class="timeline-icon" aria-hidden="true">2022</div>
+          <div class="timeline-card" style="margin-top: 1rem;">
+            <div class="timeline-head">
+              <strong>Lanzamiento público</strong>
+              <button class="timeline-toggle" aria-expanded="false" aria-controls="more-2022">Ver más</button>
+            </div>
+            <p class="timeline-lead">Primera versión abierta al público general. Millones de usuarios prueban conversación con IA.</p>
+            <div id="more-2022" class="timeline-more" aria-hidden="true">
+              <ul>
+                <li>Acceso masivo y experimentación temprana por estudiantes y profesionales.</li>
+                <li>Nuevas aplicaciones en educación y productividad.</li>
+              </ul>
+            </div>
+          </div>
         </article>
 
-        <article class="timeline-item" aria-label="Uso masivo educativo y laboral, 2023">
-          <div class="timeline-icon">2023</div>
-          <div class="timeline-dot"></div>
-          <strong>Salto a estudio y trabajo</strong>
-          <span>
-            Docentes, estudiantes y equipos técnicos empiezan a integrarlo en tareas reales: resúmenes, debugging, guías paso a paso.
-          </span>
+        <article class="timeline-item" data-year="2023">
+          <div class="timeline-icon" aria-hidden="true">2023</div>
+          <div class="timeline-card" style="margin-top: 1rem;">
+            <div class="timeline-head">
+              <strong>Salto a estudio y trabajo</strong>
+              <button class="timeline-toggle" aria-expanded="false" aria-controls="more-2023">Ver más</button>
+            </div>
+            <p class="timeline-lead">Docentes, estudiantes y equipos técnicos empiezan a integrarlo en tareas reales: resúmenes, debugging, guías paso a paso.</p>
+            <div id="more-2023" class="timeline-more" aria-hidden="true">
+              <ul>
+                <li>Propuestas de buenas prácticas en el aula.</li>
+                <li>Herramientas auxiliares para docentes y evaluadores.</li>
+              </ul>
+            </div>
+          </div>
         </article>
 
-        <article class="timeline-item" aria-label="Integración institucional, 2025">
-          <div class="timeline-icon">2025</div>
-          <div class="timeline-dot"></div>
-          <strong>Adopción institucional</strong>
-          <span>
-            Modelos más recientes (incluida la serie GPT-5 Thinking) empiezan a usarse con controles de privacidad, auditoría y planes educativos.
-          </span>
+        <article class="timeline-item" data-year="2025">
+          <div class="timeline-icon" aria-hidden="true">2025</div>
+          <div class="timeline-card" style="margin-top: 1rem;">
+            <div class="timeline-head">
+              <strong>Adopción institucional</strong>
+              <button class="timeline-toggle" aria-expanded="false" aria-controls="more-2025">Ver más</button>
+            </div>
+            <p class="timeline-lead">Modelos más recientes empiezan a usarse con controles de privacidad, auditoría y planes educativos.</p>
+            <div id="more-2025" class="timeline-more" aria-hidden="true">
+              <ul>
+                <li>Integración con políticas institucionales de privacidad.</li>
+                <li>Desarrollo de cursos y recursos oficiales.</li>
+              </ul>
+            </div>
+          </div>
         </article>
       </div>
     </section>
-    <section class="card" style="margin-top:24px; text-align:center;">
-      <h2 style="color:#fff;">Reflexión final</h2>
-      <p style="max-width:70ch; margin:auto;">
-        Como grupo académico de la ESPOCH, utilizamos ChatGPT de forma responsable, 
-        valorando su potencial para reforzar el aprendizaje, estimular la creatividad y fomentar la investigación. 
-        No lo empleamos para reemplazar el esfuerzo personal, sino como un medio para potenciar la comprensión y la capacidad crítica en nuestra formación profesional.
-      </p>
 
-    </section>
 
   </main>
 
@@ -242,5 +400,48 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <!-- pequeño script para animar la timeline y manejar expansión -->
+  <script>
+      (function(){
+        // Animar cuando entren en viewport
+        const items = document.querySelectorAll('.timeline-item');
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add('in-view');
+              io.unobserve(e.target);
+            }
+          });
+        }, {threshold: 0.18});
+        items.forEach(i => io.observe(i));
+
+        // Toggle expandible accesible
+        document.querySelectorAll('.timeline-toggle').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('aria-controls');
+            const panel = document.getElementById(id);
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!expanded));
+            if (!expanded) {
+              panel.setAttribute('aria-hidden','false');
+              panel.style.maxHeight = panel.scrollHeight + 'px';
+              btn.textContent = 'Cerrar';
+            } else {
+              panel.style.maxHeight = null;
+              panel.setAttribute('aria-hidden','true');
+              btn.textContent = 'Ver más';
+            }
+          });
+        });
+        // Ajustar maxHeight al resize para panels abiertos
+        window.addEventListener('resize', () => {
+          document.querySelectorAll('.timeline-more').forEach(p => {
+            if (p.parentElement.querySelector('.timeline-toggle').getAttribute('aria-expanded') === 'true') {
+              p.style.maxHeight = p.scrollHeight + 'px';
+            }
+          });
+        });
+      })();
+    </script>
 </body>
 </html>

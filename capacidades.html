@@ -4,10 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Capacidades de ChatGPT</title>
-
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/chatgpt_logo.png">
   <link rel="stylesheet" href="css/capacidades.css" />
-  <link rel="stylesheet" href="css/multimedia.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <meta name="description" content="Para qué sirve ChatGPT: estudio, programación, redacción, y planes de acceso.">
   <script src="js/audio.js" defer></script>
@@ -16,13 +14,17 @@
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Principal">
-      <a class="logo" href="index.html">ChatGPT EDU</a>
+      <a class="logo" href="index.html">
+        <img src="img/chatgpt.png" alt="ChatGPT EDU" class="logo-img">
+        <span class="logo-text">ChatGPT EDU</span>
+      </a>
       <ul class="menu" role="list">
         <li><a href="index.html">Inicio</a></li>
         <li><a class="active" href="capacidades.html">Capacidades</a></li>
         <li><a href="funcionamiento.html">Funcionamiento</a></li>
         <li><a href="impacto.html">Impacto</a></li>
         <li><a href="academia.html">En la Educación</a></li>
+        <li><a href="referencias.html">Referencias</a></li>
       </ul>
     </nav>
   </header>
@@ -38,35 +40,29 @@
             <span>Capacidades principales</span>
           </div>
 
-          <div class="multimedia-container">
-            <button class="audio-btn" data-target=".lead.hero-lead">
-              <i class="bi bi-play-circle"></i> Escuchar introducción
-            </button>
-          </div>
-
+          
           <h1 class="hero-title">
             ¿Qué puedo hacer con ChatGPT?
           </h1>
-
+          
           <p class="lead hero-lead">
             <i class="bi bi-lightbulb"></i> Ideas, explicación, código, preparación de exámenes. Funciona como un asistente académico / técnico que responde en lenguaje natural.
             En la educación superior, estas capacidades deben aprovecharse como apoyo al pensamiento crítico y la producción original de conocimiento. 
             En la ESPOCH, promovemos su uso ético para complementar la formación académica, no para reemplazar la comprensión ni la autoría estudiantil.
           </p>
-          <img src="img/capacidades.png" alt="Ilustración de las capacidades de ChatGPT" class="hero-image" loading="lazy">
-
+          
           <div class="cta-row">
             <a class="btn" href="#planes">
               <span>Ver planes</span>
               <span aria-hidden="true">→</span>
             </a>
-
+            
             <a class="btn ghost" href="#responsable">
               <span>Uso responsable</span>
             </a>
           </div>
         </div>
-
+        
         <aside class="feature hero-chat">
           <div class="chat-row user">
             <div class="chat-avatar">CL</div>
@@ -74,7 +70,7 @@
               Explícame qué es ChatGPT sin términos muy técnicos, lo tengo que exponer mañana.
             </div>
           </div>
-
+          
           <div class="chat-row assistant">
             <div class="chat-avatar">GPT</div>
             <div class="bubble">
@@ -84,29 +80,28 @@
               y comprendas mejor los conceptos.
             </div>
           </div>
-
+          
           <div class="chat-row user">
             <div class="chat-avatar">CL</div>
             <div class="bubble typing">
               <span></span><span></span><span></span>
             </div>
           </div>
-
+          
           <div class="voice-hint">
-            <span>Entrada de voz</span>
-            <div class="voice-indicator active" aria-hidden="true">
-              <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-            </div>
+              <button class="audio-btn" data-target=".lead.hero-lead">
+                <i class="bi bi-play-circle"></i> Escuchar introducción
+              </button>
           </div>
         </aside>
 
       </div>
     </section>
-
-
+    
+    
     <section class="card section-block">
       <div class="grid">
-
+        
         <article class="card feature ability-card">
           <div class="ability-icon">✍️</div>
           <h3 class="ability-title">Redacción</h3>
@@ -122,7 +117,7 @@
             Te explica temas difíciles paso a paso con ejemplos sencillos. Útil para repasar antes de exponer.
           </p>
         </article>
-
+        
         <article class="card feature ability-card">
           <div class="ability-icon">💻</div>
           <h3 class="ability-title">Código y debugging</h3>
@@ -138,7 +133,7 @@
             Propone dinámicas de clase, storytelling para una presentación, script de video, slogans de campaña.
           </p>
         </article>
-
+        
         <article class="card feature ability-card">
           <div class="ability-icon">✅</div>
           <h3 class="ability-title">Práctica de examen</h3>
@@ -161,9 +156,9 @@
 
     <section class="card section-block" id="responsable">
       <h2 class="section-title">Uso responsable</h2>
-
+      
       <div class="grid responsible-grid">
-
+        
         <article class="card feature responsible-card">
           <h3 class="responsible-heading">
             <span class="responsible-emoji">⚠️</span>
@@ -173,7 +168,7 @@
             A veces inventa datos / citas. No entregues información crítica (legal, médica, financiera) sin confirmarla.
           </p>
         </article>
-
+        
         <article class="card feature responsible-card">
           <h3 class="responsible-heading">
             <span class="responsible-emoji">🔒</span>
@@ -194,7 +189,7 @@
             No es un abogado ni un psicólogo. Lo que digas no está cubierto por secreto profesional.
           </p>
         </article>
-
+        
         <article class="card feature responsible-card">
           <h3 class="responsible-heading">
             <span class="responsible-emoji">📚</span>
@@ -213,7 +208,8 @@
             ChatGPT puede ser un excelente compañero de estudio si se usa para aprender, no para copiar. Siempre verifica las fuentes, interpreta las respuestas y aporta tu propio análisis.
           </p>
         </article>
-
+        <img src="img/capacidades.png" alt="Ilustración de las capacidades de ChatGPT" class="ia_vs_human" loading="lazy">
+        
       </div>
       <p style="margin-top:1rem; font-weight:500;">
         En nuestro grupo utilizamos ChatGPT como una herramienta de aprendizaje activo: nos ayuda a comprender temas, mejorar la redacción y explorar nuevas ideas. Sin embargo, mantenemos siempre la autoría, el razonamiento propio y la cita responsable de sus aportes, en coherencia con los valores académicos de la ESPOCH.

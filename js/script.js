@@ -29,25 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     else img.addEventListener('load', mark);
   });
 
-  // =========================
-  // DELEGATED CLICK FOR SPEAK BUTTONS
-  // =========================
-  document.addEventListener('click', (e) => {
-    let el = e.target;
-    while (el && el !== document) {
-      if (el.classList && el.classList.contains && el.classList.contains('speak-btn')) {
-        e.preventDefault();
-        try { leerTexto(el); } catch (err) { console.error('leerTexto error', err); }
-        return;
-      }
-      el = el.parentNode;
-    }
-  });
 
-  // Precalentar voces si el navegador deja
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.getVoices();
-  }
 
   // =========================
   // MINI CHAT
@@ -194,49 +176,83 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// =========================
-// HELPERS GLOBALES
-// =========================
 
-// Escape de HTML por seguridad básica
-function escapeHtml(s){
-  return String(s).replace(/[&<>"']/g, c => ({
-    '&':'&amp;',
-    '<':'&lt;',
-    '>':'&gt;',
-    '"':'&quot;',
-    "'":'&#39;'
-  }[c]));
-}
+
+  // =========================
+  // DELEGATED CLICK FOR SPEAK BUTTONS
+  // =========================
+  document.addEventListener('click', (e) => {
+    let el = e.target;
+    while (el && el !== document) {
+      if (el.classList && el.classList.contains && el.classList.contains('speak-btn')) {
+        e.preventDefault();
+        try { leerTexto(el); } catch (err) { console.error('leerTexto error', err); }
+        return;
+      }
+      el = el.parentNode;
+    }
+  });
+
+  // Precalentar voces si el navegador deja
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.getVoices();
+  }
+
 
 // =========================
 // VOZ / LECTURA EN VOZ ALTA
 // =========================
+
 let currentUtterance = null;
 let currentBtn = null;
 let currentCard = null;
 
-function getPreferredVoice(){
+// Busca una voz femenina en español si existe
+function getPreferredVoice() {
   const voices = (window.speechSynthesis && window.speechSynthesis.getVoices()) || [];
-  if(!voices.length) return null;
+  if (!voices.length) return null;
 
-  const es = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('es'));
-  if(es.length){
-    const fav = es.find(v => /google|microsoft|spanish|espa/i.test(v.name));
-    return fav || es[0];
+  // 1. Filtrar solo voces en español (es-ES, es-MX, es-US, etc.)
+  const vocesES = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('es'));
+  if (!vocesES.length) {
+    return null;
   }
-  return voices[0];
+
+  // 2. Intentar voces femeninas comunes por nombre
+  const posiblesFemeninas = [
+    /camila/i,
+    /paulina/i,
+    /sofia/i,
+    /lucia/i,
+    /google.*espa(ñ|n)ol/i,
+    /espa(ñ|n)ol.*(female|femenina)?/i,
+  ];
+
+  for (const regex of posiblesFemeninas) {
+    const match = vocesES.find(v => regex.test(v.name));
+    if (match) return match;
+  }
+
+  // 3. Si no encontramos "femenina" explícita,
+  // priorizamos voces de Google/Microsoft en español
+  const marca = vocesES.find(v => /google|microsoft/i.test(v.name));
+  if (marca) return marca;
+
+  // 4. Último recurso: la primera voz en español
+  return vocesES[0];
 }
 
-function toggleVoiceIndicator(card, active){
+// Cambia el circulito/luz de "está hablando"
+function toggleVoiceIndicator(card, active) {
   const ind = card?.querySelector?.('.voice-indicator');
-  if(!ind) return;
-  if(active) ind.classList.add('active');
+  if (!ind) return;
+  if (active) ind.classList.add('active');
   else ind.classList.remove('active');
 }
 
-function leerTexto(btn){
-  if(!('speechSynthesis' in window)){
+// Lector principal
+function leerTexto(btn) {
+  if (!('speechSynthesis' in window)) {
     alert('Síntesis de voz no soportada en este navegador.');
     return;
   }
@@ -244,18 +260,18 @@ function leerTexto(btn){
   const card = btn.closest('.student-card');
   const bubble = card?.querySelector?.('.bubble');
   const texto = bubble?.getAttribute('data-texto') || bubble?.innerText || '';
-  if(!texto) return;
+  if (!texto) return;
 
   // si es el mismo botón -> pausar / resumir
-  if(currentBtn === btn){
-    if(window.speechSynthesis.speaking && !window.speechSynthesis.paused){
+  if (currentBtn === btn) {
+    if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
       window.speechSynthesis.pause();
       btn.textContent = '▶ Reanudar';
       card?.classList?.remove('speaking');
       toggleVoiceIndicator(card, false);
       return;
     }
-    if(window.speechSynthesis.paused){
+    if (window.speechSynthesis.paused) {
       window.speechSynthesis.resume();
       btn.textContent = '⏸ Pausar';
       card?.classList?.add('speaking');
@@ -264,67 +280,72 @@ function leerTexto(btn){
     }
   }
 
-  // si había algo hablando antes, cortamos
-  if(currentUtterance){
+  // cortar lo que estuviera sonando
+  if (currentUtterance) {
     window.speechSynthesis.cancel();
     cleanupCurrent();
   }
 
+  // crear el objeto de voz
   const u = new SpeechSynthesisUtterance(texto);
-  u.lang = 'es-ES';
   u.rate = 1.02;
-  u.pitch = 1.02;
+  u.pitch = 1.15; // un poco más agudo para sonar más femenino
+  u.lang = 'es-ES';
 
-  const pref = getPreferredVoice();
-  if(pref) u.voice = pref;
+  function asignarVozYHablar() {
+    const pref = getPreferredVoice();
+    if (pref) {
+      u.voice = pref;
+      u.lang = pref.lang || u.lang;
+    }
 
-  u.onstart = ()=>{
-    currentUtterance = u;
-    currentBtn = btn;
-    currentCard = card;
+    u.onstart = () => {
+      currentUtterance = u;
+      currentBtn = btn;
+      currentCard = card;
 
-    btn.textContent = '⏸ Pausar';
-    card?.classList?.add('speaking');
-    toggleVoiceIndicator(card, true);
+      btn.textContent = '⏸ Pausar';
+      card?.classList?.add('speaking');
+      toggleVoiceIndicator(card, true);
 
-    const ava = card?.querySelector?.('.talking-avatar');
-    if(ava) ava.classList.add('animating-mouth');
+      const ava = card?.querySelector?.('.talking-avatar');
+      if (ava) ava.classList.add('animating-mouth');
 
-    updateLiveRegion('Reproduciendo audio');
-  };
-
-  u.onend = ()=>{
-    cleanupCurrent();
-  };
-
-  u.onerror = (e)=>{
-    console.warn('speech error', e);
-    cleanupCurrent();
-  };
-
-  // algunas veces getVoices() está vacío la primera vez
-  if(window.speechSynthesis.getVoices().length === 0){
-    window.speechSynthesis.onvoiceschanged = ()=>{
-      try{
-        if(getPreferredVoice()) u.voice = getPreferredVoice();
-        window.speechSynthesis.speak(u);
-      }catch(e){
-        console.warn(e);
-      }
+      updateLiveRegion('Reproduciendo audio');
     };
+
+    u.onend = () => {
+      cleanupCurrent();
+    };
+
+    u.onerror = (e) => {
+      console.warn('speech error', e);
+      cleanupCurrent();
+    };
+
+    window.speechSynthesis.speak(u);
+  }
+
+  // si las voces aún no están listas, esperamos el evento y luego hablamos con voz femenina
+  if (window.speechSynthesis.getVoices().length === 0) {
+    window.speechSynthesis.onvoiceschanged = () => {
+      asignarVozYHablar();
+    };
+    // fuerza carga inicial de voces
     window.speechSynthesis.getVoices();
   } else {
-    window.speechSynthesis.speak(u);
+    asignarVozYHablar();
   }
 }
 
-function cleanupCurrent(){
-  if(currentCard) currentCard.classList.remove('speaking');
+// Limpieza de estado UI cuando termina, pausa o se cancela
+function cleanupCurrent() {
+  if (currentCard) currentCard.classList.remove('speaking');
 
   const ava = currentCard?.querySelector?.('.talking-avatar');
-  if(ava) ava.classList.remove('animating-mouth');
+  if (ava) ava.classList.remove('animating-mouth');
 
-  if(currentBtn) currentBtn.textContent = '▶ Escuchar';
+  if (currentBtn) currentBtn.textContent = '▶ Escuchar';
 
   toggleVoiceIndicator(currentCard, false);
 
@@ -335,14 +356,52 @@ function cleanupCurrent(){
   updateLiveRegion('Reproducción finalizada');
 }
 
-function updateLiveRegion(text){
+// Región aria-live para accesibilidad (lectores de pantalla)
+function updateLiveRegion(text) {
   let live = document.getElementById('speech-live');
-  if(!live){
+  if (!live) {
     live = document.createElement('div');
     live.id = 'speech-live';
     live.className = 'visually-hidden';
-    live.setAttribute('aria-live','polite');
+    live.setAttribute('aria-live', 'polite');
     document.body.appendChild(live);
   }
   live.textContent = text;
 }
+
+
+
+  const tabBtns = document.querySelectorAll('.ref-tabs [data-tab]');
+  const panels = document.querySelectorAll('.ref-panel');
+  function showTab(id){
+    panels.forEach(p => p.hidden = !(p.id === 'tab-' + id));
+    tabBtns.forEach(b => b.setAttribute('aria-selected', b.dataset.tab === id));
+  }
+  tabBtns.forEach(btn => btn.addEventListener('click', () => showTab(btn.dataset.tab)));
+  showTab('doc');
+
+  // Filtro dentro del panel activo
+  const input = document.getElementById('ref-search');
+  const clear = document.getElementById('clear-filter');
+  function activePanel(){ return [...panels].find(p => !p.hidden); }
+  function filter(){
+    const q = (input.value || '').toLowerCase().trim();
+    const items = activePanel().querySelectorAll('.ref-list > li');
+    items.forEach(li => {
+      const hay = (li.dataset.keywords || li.textContent).toLowerCase();
+      li.style.display = q ? (hay.includes(q) ? '' : 'none') : '';
+    });
+  }
+  input.addEventListener('input', filter);
+  clear.addEventListener('click', () => { input.value=''; filter(); input.focus(); });
+
+  // Copiar cita
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.copy');
+    if(!btn) return;
+    navigator.clipboard.writeText(btn.dataset.copy || '').then(()=>{
+      const old = btn.textContent;
+      btn.textContent = 'Copiado ✓';
+      setTimeout(()=> btn.textContent = old, 1200);
+    });
+  });
