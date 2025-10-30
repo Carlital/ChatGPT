@@ -681,60 +681,66 @@ body{
    VIDEO EN SEGURIDAD
    ============================================ */
 
-/* Contenedor general del grid */
+/* ====== GRID VIDEO + TEXTO ====== */
 .security-grid-container {
-  display: grid;
-  grid-template-columns: 0.7fr 1.3fr; /* 🔹 El video ocupa menos espacio, el texto más */
-  align-items: center;
-  gap: 16px; /* 🔹 Menor separación entre columnas */
-}
-
-/* VIDEO AJUSTADO */
-.security-video {
-  width: 100%;
-  max-width: 320px; /* tamaño que prefieras */
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  object-fit: cover;
-  justify-self: center; /* centra el video en su columna */
-}
-
-/* Para pantallas pequeñas (responsive) */
-@media (max-width: 768px) {
-  .security-grid-container {
-    grid-template-columns: 1fr; /* Pila el video arriba y el texto abajo */
-  }
-
-  .security-video {
-    max-width: 100%; /* Ocupa todo el ancho disponible */
-  }
-}
-
-.security-video-box {
-  position: relative;
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(16, 163, 127, 0.4);
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
-}
-
-.security-video {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-}
-
-/* Ajustar el cuerpo del texto de seguridad */
-.fx-safe-body {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 0 24px;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* para que se adapte en pantallas pequeñas */
 }
+
+/* ====== CONTENEDOR DEL VIDEO ====== */
+.video-wrapper {
+  position: relative;
+  flex: 1 1 300px;
+  max-width: 320px;         /* ancho fijo razonable */
+  height: 500px;            /* alto vertical tipo short */
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: #000;        
+}
+
+/* ====== AJUSTE DEL IFRAME ====== */
+.video-iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 130%;              /* agranda para cortar los bordes negros */
+  height: 130%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;        
+  border: none;
+  
+}
+
+/* ====== COLUMNA DE TEXTO ====== */
+.fx-safe-body {
+  flex: 2 1 400px;
+  color: #fff;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Estilos del título y texto para mantener estética */
+.fx-safe-title {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.fx-safe-text {
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.fx-safe-list {
+  margin: 0 0 1rem 1.5rem;
+  list-style-type: disc;
+  opacity: 0.9;
+}
+
 
 /* ============================================
    PEQUEÑAS ANIMACIONES DE CARGA
@@ -787,3 +793,4 @@ body{
     transform: scale(0.9);
   }
 }
+
