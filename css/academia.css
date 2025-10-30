@@ -944,7 +944,7 @@ body {
 /* ====== Stack Reveal (ajustado al contenido) ====== */
 .stack-container {
   --top: 8vh;           /* altura del “pegado” */
-  --overlap: -3vh;       /* cuánto tapa la siguiente */
+  --overlap: 2vh;       /* cuánto tapa la siguiente */
   --radius: 25px;
 
   position: relative;
@@ -974,7 +974,7 @@ body {
   transform: translateY(40px) scale(0.985);
 
   text-align: center;     
-  font-size: 1.5rem;  
+  font-size: 1.2rem;  
   
 }
 
