@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>¿Cómo funciona ChatGPT?</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="img/chatgpt_logo.png">
+  <link rel="stylesheet" href="css/funcionamiento.css">
+  <meta name="description" content="Explicación visual e interactiva de cómo ChatGPT procesa tu pregunta, cómo razona y por qué tiene límites." />
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="index.html">
+        <img src="img/chatgpt.png" alt="ChatGPT EDU" class="logo-img">
+        <span class="logo-text">ChatGPT EDU</span>
+      </a>
+      <ul class="menu" role="list">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="capacidades.html">Capacidades</a></li>
+        <li><a class="active" href="funcionamiento.html">Funcionamiento</a></li>
+        <li><a href="impacto.html">Impacto</a></li>
+        <li><a href="academia.html">En la Educación</a></li>
+        <li><a href="referencias.html">Referencias</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+<!-- ========== SECCIÓN 1: ¿Cómo funciona ChatGPT? ========== -->
+<section class="card fx-block">
+  <header class="fx-head">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      <span>Proceso interno</span>
+    </div>
+
+    <h1 class="fx-title">¿Cómo funciona ChatGPT?</h1>
+
+    <p class="lead fx-head-lead">
+      No es que "busca en Google". Predice, razona y formula respuestas usando patrones que aprendió del lenguaje humano.
+    </p>
+  </header>
+
+  <div class="fx-main-grid">
+    <!-- Columna izquierda: pasos -->
+    <div class="fx-steps-col">
+
+      <article class="fx-step-card card feature interactive-step" data-step="1">
+        <div class="fx-step-num">1</div>
+        <div class="fx-step-body">
+          <h3 class="fx-step-heading">Entiende tu intención</h3>
+          <p class="fx-step-text">
+            Identifica qué le estás pidiendo en realidad: ¿explicar?, ¿resumir?, ¿dar ejemplos?, ¿corregir código?
+          </p>
+        </div>
+      </article>
+
+      <article class="fx-step-card card feature interactive-step" data-step="2">
+        <div class="fx-step-num">2</div>
+        <div class="fx-step-body">
+          <h3 class="fx-step-heading">Predice la respuesta más útil</h3>
+          <p class="fx-step-text">
+            Va generando la respuesta palabra por palabra según lo que sería <em>más probable y más útil</em> en contexto.
+          </p>
+        </div>
+      </article>
+
+      <article class="fx-step-card card feature interactive-step" data-step="3">
+        <div class="fx-step-num">3</div>
+        <div class="fx-step-body">
+          <h3 class="fx-step-heading">Ajuste humano</h3>
+          <p class="fx-step-text">
+            Personas entrenadoras corrigieron ejemplos reales. Así aprende a sonar claro, respetuoso y menos riesgoso.
+          </p>
+        </div>
+      </article>
+
+      <article class="fx-step-card card feature interactive-step" data-step="4">
+        <div class="fx-step-num">4</div>
+        <div class="fx-step-body">
+          <h3 class="fx-step-heading">Límites</h3>
+          <ul class="fx-step-list tight">
+            <li>Puede inventar datos (alucinar).</li>
+            <li>No reemplaza consejo médico ni legal.</li>
+            <li>No siempre sabe lo más reciente.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Columna derecha: bloque visual -->
+    <aside class="fx-visual-card card feature">
+      <div class="fx-visual-header">
+        <div class="fx-visual-badge">
+          <span class="badge-dot"></span>
+          <span>Vista rápida + Tokenizador</span>
+        </div>
+        <p class="fx-visual-desc">
+          Lo que tú escribes → el modelo analiza → genera una respuesta → aplica filtros de seguridad → te contesta.
+        </p>
+      </div>
+
+      <div class="fx-visual-frame">
+        <img
+          src="img/entendimiento.jpg"
+          alt="Esquema visual del proceso interno de ChatGPT"
+          class="fx-visual-img"
+          loading="lazy"
+        >
+      </div>
+
+      <p class="fx-visual-footnote">
+        ChatGPT no "busca en Google", sino que genera texto según patrones aprendidos.
+      </p>
+
+      <!-- TOKENIZADOR -->
+      <div class="token-simulator-box">
+        <label for="tokenInput" class="token-label">🔬 Prueba el Tokenizador:</label>
+        <input 
+          type="text" 
+          id="tokenInput" 
+          class="token-input-field"
+          placeholder="Escribe algo aquí..."
+        >
+        <div id="tokenOutput" class="token-output-box">
+          <span class="token-hint">Los tokens aparecerán aquí...</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+
+<!-- ========== SECCIÓN 2: Del texto a la respuesta (diagrama de flujo) ========== -->
+<section class="card fx-flow-block">
+  <header class="fx-head-sm">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      <span>Flujo general</span>
+    </div>
+    <h2 class="fx-subtitle">Del texto a la respuesta</h2>
+    <p class="fx-head-mini">
+      Qué hace el modelo entre que escribes algo y ves la respuesta final. <strong>Haz clic en cada paso.</strong>
+    </p>
+  </header>
+
+  <div class="fx-flow-line">
+    <div class="fx-flow-step clickable-flow" data-flow="1">
+      <div class="fx-flow-icon">💬</div>
+      <div class="fx-flow-label">
+        <strong>Tu mensaje</strong>
+        <span>"Explícame fotosíntesis fácil"</span>
+      </div>
+    </div>
+
+    <div class="fx-flow-arrow">→</div>
+
+    <div class="fx-flow-step clickable-flow" data-flow="2">
+      <div class="fx-flow-icon">🔎</div>
+      <div class="fx-flow-label">
+        <strong>Analiza</strong>
+        <span>Divide el texto en "tokens" y entiende contexto</span>
+      </div>
+    </div>
+
+    <div class="fx-flow-arrow">→</div>
+
+    <div class="fx-flow-step clickable-flow" data-flow="3">
+      <div class="fx-flow-icon">🧠</div>
+      <div class="fx-flow-label">
+        <strong>Predice</strong>
+        <span>Genera la mejor siguiente palabra una y otra vez</span>
+      </div>
+    </div>
+
+    <div class="fx-flow-arrow">→</div>
+
+    <div class="fx-flow-step clickable-flow" data-flow="4">
+      <div class="fx-flow-icon">🛡️</div>
+      <div class="fx-flow-label">
+        <strong>Filtra</strong>
+        <span>Aplica normas de seguridad y tono adecuado</span>
+      </div>
+    </div>
+
+    <div class="fx-flow-arrow">→</div>
+
+    <div class="fx-flow-step clickable-flow" data-flow="5">
+      <div class="fx-flow-icon">✅</div>
+      <div class="fx-flow-label">
+        <strong>Responde</strong>
+        <span>Te da una explicación clara en lenguaje natural</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel de detalles del flujo -->
+  <div id="flowDetailPanel" class="flow-detail-box" style="display:none;">
+    <p id="flowDetailText" class="flow-detail-text"></p>
+  </div>
+</section>
+
+
+<!-- ========== SECCIÓN 3: Arquitectura técnica CON MODALES ========== -->
+<section class="card fx-arch-block">
+  <header class="fx-head-sm">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      <span>Arquitectura técnica</span>
+    </div>
+
+    <h2 class="fx-subtitle">Bajo el capó: Transformer</h2>
+    <p class="lead fx-head-lead">
+      ChatGPT usa una red neuronal llamada <strong>Transformer</strong>. No piensa "como humano", pero es excelente encontrando patrones en texto. <strong>Haz clic en cada componente.</strong>
+    </p>
+  </header>
+
+  <div class="fx-arch-grid">
+
+    <article class="fx-arch-card card feature hover-card modal-trigger" data-modal="encoder">
+      <div class="fx-arch-icon">🔄</div>
+      <h3 class="fx-arch-title">Codificador / decodificador</h3>
+      <p class="fx-arch-text">
+        Convierte tu texto en números (vectores), razona en ese espacio matemático y luego vuelve a convertirlo en palabras naturales.
+      </p>
+      <p class="fx-arch-click-hint">👆 Clic para más detalles</p>
+    </article>
+
+    <article class="fx-arch-card card feature hover-card modal-trigger" data-modal="attention">
+      <div class="fx-arch-icon">🎯</div>
+      <h3 class="fx-arch-title">Atención</h3>
+      <p class="fx-arch-text">
+        El mecanismo de "self-attention" decide qué partes de tu mensaje son más relevantes para responder bien.
+      </p>
+      <p class="fx-arch-click-hint">👆 Clic para más detalles</p>
+    </article>
+
+    <article class="fx-arch-card card feature hover-card modal-trigger" data-modal="training">
+      <div class="fx-arch-icon">📚</div>
+      <h3 class="fx-arch-title">Entrenamiento masivo</h3>
+      <p class="fx-arch-text">
+        Se entrenó con enormes cantidades de texto público y datos licenciados. Aprende patrones, estilos y estructuras comunes del lenguaje humano.
+      </p>
+      <p class="fx-arch-click-hint">👆 Clic para más detalles</p>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- ========== SECCIÓN 4: Modelos GPT CON IMÁGENES ========== -->
+<section class="card" style="margin-top:24px;">
+  <header style="margin-bottom:1.25rem;">
+    <div class="badge" style="margin-bottom:.75rem;">
+      <span class="badge-dot"></span>
+      <span>Modelo actual</span>
+    </div>
+
+    <h2 class="fx-subtitle">
+      ¿ChatGPT usa GPT-5?
+    </h2>
+    <p class="lead" style="max-width:60ch;">
+      Sí. GPT-5 (y sus variantes) es la familia de modelos más reciente que impulsa ChatGPT hoy.
+    </p>
+  </header>
+
+  <div class="fx-model-grid">
+
+    <article class="fx-model-card card feature hover-card">
+      <div class="fx-model-head">
+        <div class="fx-model-name">GPT-5</div>
+        <div class="fx-model-pill">General</div>
+      </div>
+      
+      <!-- IMAGEN DEL MODELO -->
+      <div class="model-image-container">
+        <img src="img/chat_general.jpg" alt="GPT-5" class="model-image">
+      </div>
+      
+      <p class="fx-model-text">
+        Modelo principal. Responde preguntas, redacta textos formales y explica temas.
+      </p>
+      <ul class="fx-model-points">
+        <li>Entiende lenguaje natural.</li>
+        <li>Puede razonar sobre pasos lógicos.</li>
+        <li>Disponible incluso para muchos usuarios gratis.</li>
+      </ul>
+    </article>
+
+    <article class="fx-model-card card feature hover-card">
+      <div class="fx-model-head">
+        <div class="fx-model-name">GPT-5 mini / nano</div>
+        <div class="fx-model-pill">Ligero</div>
+      </div>
+      
+      <!-- IMAGEN DEL MODELO -->
+      <div class="model-image-container">
+        <img src="img/gpt_mini1.jpg" alt="GPT-5 mini" class="model-image">
+      </div>
+      
+      <p class="fx-model-text">
+        Versiones más rápidas y más baratas en consumo, pensadas para respuesta ágil.
+      </p>
+      <ul class="fx-model-points">
+        <li>Ideal para cosas cortas y directas.</li>
+        <li>Menos costo computacional.</li>
+        <li>Se usa mucho en modo "rápido / chat".</li>
+      </ul>
+    </article>
+
+    <article class="fx-model-card card feature hover-card">
+      <div class="fx-model-head">
+        <div class="fx-model-name">GPT-5 Thinking</div>
+        <div class="fx-model-pill">Razonamiento</div>
+      </div>
+      
+      <!-- IMAGEN DEL MODELO -->
+      <div class="model-image-container">
+        <img src="img/gpt_thinking1.jpg" alt="GPT-5 Thinking" class="model-image">
+      </div>
+      
+      <p class="fx-model-text">
+        Variante diseñada para problemas largos o complejos. Prioriza calidad de razonamiento.
+      </p>
+      <ul class="fx-model-points">
+        <li>Profundiza más antes de responder.</li>
+        <li>Mejor para investigar, depurar lógica, planificar proyectos.</li>
+        <li>Maneja historiales muy largos (decenas de miles de tokens).</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <p class="muted" style="font-size:.8rem;line-height:1.3rem;margin-top:16px;">
+    Nota: ChatGPT puede "escalar" internamente y usar una versión más potente (por ejemplo GPT-5 Thinking) si la tarea lo requiere, como cuando le pides que analice documentación grande o planifique un sistema completo.
+  </p>
+
+</section>
+
+
+<!-- ========== SECCIÓN 5: Seguridad CON VIDEO ========== -->
+<section class="card" style="margin-top:24px;">
+  <div class="fx-safe card feature">
+    
+    <!-- GRID: VIDEO (izquierda) + TEXTO (derecha) -->
+    <div class="security-grid-container">
+      
+      <!-- VIDEO A LA IZQUIERDA -->
+      <video 
+          class="security-video"
+          controls 
+          poster="img/video.jpg"
+        >
+          <source src="video/seguridad_chatgpt.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento de video.
+        </video>
+
+      <!-- TEXTO A LA DERECHA -->
+      <div class="fx-safe-body">
+        <div class="fx-safe-icon">🔒</div>
+        <h2 class="fx-safe-title">Seguridad y uso responsable</h2>
+        <p class="fx-safe-text">
+          El sistema tiene filtros para rechazar contenido peligroso (violencia explícita, instrucciones ilegales, odio, etc.). También evita dar respuestas que sustituyan el criterio profesional en salud, legal o finanzas.
+        </p>
+        <p class="fx-safe-text">
+          Aun así, siempre debes:
+        </p>
+        <ul class="fx-safe-list">
+          <li>Verificar información crítica en fuentes confiables.</li>
+          <li>No pegar información privada muy sensible en cuentas personales.</li>
+          <li>Mencionar que usaste IA si el trabajo es académico y así lo pide tu institución.</li>
+        </ul>
+        <p class="fx-safe-text">
+          OpenAI y otras organizaciones promueven el uso ético de la IA. 
+          ChatGPT registra las conversaciones solo para mejorar el sistema y proteger la seguridad del usuario.
+        </p>
+        <p class="fx-safe-text">
+          También existen versiones educativas, como ChatGPT EDU, con políticas de privacidad reforzadas para entornos académicos.
+        </p>
+      </div>
+    </div>
+
+    <!-- Burbuja visual decorativa (mantiene diseño original) -->
+    <div class="fx-safe-visual">
+      <div class="fx-safe-bubble">
+        <div class="fx-safe-bubble-inner">
+          IA
+        </div>
+      </div>
+      <div class="fx-safe-halo"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== SECCIÓN 6: Mini-chat ========== -->
+<section class="card" style="margin-top:24px;">
+  <header style="margin-bottom:1rem;">
+    <div class="badge" style="margin-bottom:.75rem;">
+      <span class="badge-dot"></span>
+      <span>Práctica</span>
+    </div>
+
+    <h2 class="fx-subtitle">
+      Mini-chat tutor (simulado)
+    </h2>
+    <p class="lead" style="max-width:60ch;">
+      Escribe una pregunta sobre ChatGPT, IA o educación. Esto es solo demostración local, no envía nada a internet.
+    </p>
+  </header>
+
+  <div id="mini-chat" class="mini-chat-shell card feature">
+    <div id="chat-messages" class="mini-chat-window">
+      <div class="mini-chat-row mini-chat-user">
+        <div class="mini-chat-avatar">TÚ</div>
+        <div class="mini-chat-bubble">
+          ¿Qué es ChatGPT?
+        </div>
+      </div>
+
+      <div class="mini-chat-row mini-chat-assistant">
+        <div class="mini-chat-avatar">GPT</div>
+        <div class="mini-chat-bubble">
+          ChatGPT es un modelo de lenguaje de inteligencia artificial desarrollado por OpenAI. Usa redes neuronales tipo Transformer que predicen texto basándose en patrones aprendidos de grandes cantidades de datos.
+        </div>
+      </div>
+    </div>
+
+    <form id="mini-chat-form" class="mini-chat-form">
+      <input
+        id="chat-input"
+        type="text"
+        class="mini-chat-input"
+        placeholder="Escribe una pregunta (ej. '¿Qué es un token?', '¿Cómo ayuda en educación?')"
+      />
+      <button class="btn" type="submit">Enviar</button>
+    </form>
+
+    <p class="muted" style="margin-top:8px;font-size:.75rem;line-height:1.2rem;">
+      💡 Este chat usa respuestas preprogramadas según palabras clave. Es una simulación educativa.
+    </p>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-accent"></div>
+
+    <div class="footer-inner">
+      <div class="footer-col brand-col">
+        <div class="footer-logo">
+          <span class="footer-logo-icon">💬</span>
+          <span class="footer-logo-text">ChatGPT EDU</span>
+        </div>
+        <p class="footer-desc">
+          Inteligencia Artificial aplicada a la educación.<br>
+          Este sitio analiza el uso responsable de ChatGPT.
+        </p>
+      </div>
+
+      <div class="footer-col project-col">
+        <h4 class="footer-heading">Proyecto académico</h4>
+        <p class="footer-text">
+          Asignatura:<br>
+          Desarrollo y Operaciones de Software
+        </p>
+        <p class="footer-text">
+          Facultad:<br>
+          Informática y Electrónica
+        </p>
+      </div>
+
+      <div class="footer-col team-col">
+        <h4 class="footer-heading">Equipo</h4>
+        <ul class="footer-list">
+          <li>Daniela Albán</li>
+          <li>Scarlet Cayapa</li>
+          <li>Kelly Lema</li>
+          <li>Carla Lomas</li>
+          <li>Katty Moyano</li>
+        </ul>
+      </div>
+
+      <div class="footer-col meta-col">
+        <h4 class="footer-heading">Año académico</h4>
+        <p class="footer-text">
+          © 2025<br>
+          Septiembre 2025 – Enero 2026
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-bottom-text">
+        Escuela Superior Politécnica de Chimborazo — ESPOCH.<br><br>
+        Este sitio tiene fines académicos y promueve el uso ético de la inteligencia artificial.
+      </p>
+    </div>
+  </footer>
+
+  <!-- MODALES DE ARQUITECTURA -->
+  <div id="modalEncoder" class="modal-overlay">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('encoder')">&times;</button>
+      <div class="modal-content-grid">
+        <div class="modal-image-side">
+          <img src="img/codificar.jpg" alt="Codificador/Decodificador" class="modal-img">
+        </div>
+        <div class="modal-text-side">
+          <h3 class="modal-title">🔄 Codificador / Decodificador</h3>
+          <p class="modal-text">
+            El <strong>Transformer</strong> usa dos componentes principales: el codificador y el decodificador.
+          </p>
+          <p class="modal-text">
+            <strong>Codificador:</strong> Convierte tu texto de entrada en representaciones numéricas (vectores) que capturan el significado y contexto de cada palabra. Cada palabra se transforma en un vector de cientos o miles de dimensiones.
+          </p>
+          <p class="modal-text">
+            <strong>Decodificador:</strong> Toma esos vectores y los procesa para generar la respuesta palabra por palabra. En cada paso, predice la siguiente palabra más probable basándose en todo el contexto anterior.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalAttention" class="modal-overlay">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('attention')">&times;</button>
+      <div class="modal-content-grid">
+        <div class="modal-image-side">
+          <img src="img/self_attention.jpg" alt="Mecanismo de Atención" class="modal-img">
+        </div>
+        <div class="modal-text-side">
+          <h3 class="modal-title">🎯 Mecanismo de Atención</h3>
+          <p class="modal-text">
+            El <strong>self-attention</strong> es la innovación clave que hace funcionar a los Transformers.
+          </p>
+          <p class="modal-text">
+            <strong>¿Qué hace?</strong> Por ejemplo, en la frase "El banco está cerrado", el modelo usa atención para saber si "banco" se refiere a una institución financiera o un asiento.
+          </p>
+          <p class="modal-text">
+            <strong>Multi-Head Attention:</strong> El modelo usa múltiples "cabezas" de atención simultáneamente, cada una enfocándose en diferentes aspectos del texto (sintaxis, semántica, relaciones temporales, etc.).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalTraining" class="modal-overlay">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('training')">&times;</button>
+      <div class="modal-content-grid">
+        <div class="modal-image-side">
+          <img src="img/masivo_e.jpg" alt="Entrenamiento Masivo" class="modal-img">
+        </div>
+        <div class="modal-text-side">
+          <h3 class="modal-title">📚 Entrenamiento Masivo</h3>
+          <p class="modal-text">
+            ChatGPT se entrena en <strong>dos fases principales</strong>:
+          </p>
+          <p class="modal-text">
+            <strong>1. Pre-entrenamiento:</strong> El modelo lee miles de millones de palabras de libros, artículos, sitios web y código. Aprende patrones del lenguaje, hechos sobre el mundo, y cómo estructurar respuestas coherentes.
+          </p>
+          <p class="modal-text">
+            <strong>2. Ajuste fino (RLHF):</strong> Entrenadores humanos califican y corrigen respuestas del modelo. Se usa "Reinforcement Learning from Human Feedback" para que el modelo aprenda a dar respuestas más útiles, seguras y alineadas con valores humanos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/funcionamiento.js"></script>
+</body>
+</html>
