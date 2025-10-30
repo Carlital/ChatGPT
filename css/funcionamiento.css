@@ -254,3 +254,536 @@ body{
 .footer-list li::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--c-green)}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:1rem;max-width:1280px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem}
 .footer-bottom-text{font-size:.75rem;line-height:1.3rem;color:var(--c-dim);text-align:center;max-width:70ch;margin-left:auto;margin-right:auto}
+
+/* ==========================================
+   FUNCIONAMIENTO.CSS - Interactividad EXTRA
+   Se mantiene TODO el diseño original,
+   solo se agregan efectos interactivos
+   ========================================== */
+
+/* ============================================
+   ANIMACIONES Y EFECTOS HOVER SUTILES
+   ============================================ */
+
+/* Cursor pointer en elementos clicables */
+.interactive-step,
+.clickable-flow,
+.hover-card {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+/* Efecto hover en los pasos (cards de funcionamiento) */
+.interactive-step:hover {
+  transform: translateX(6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 16px rgba(16, 163, 127, 0.2);
+}
+
+.interactive-step:hover .fx-step-num {
+  transform: scale(1.1);
+  box-shadow: 0 0 16px rgba(16, 163, 127, 0.5);
+}
+
+/* Efecto hover en los pasos del flujo */
+.clickable-flow {
+  opacity: 0.8;
+}
+
+.clickable-flow:hover,
+.clickable-flow.active {
+  opacity: 1;
+  border-color: rgba(16, 163, 127, 0.6) !important;
+  background: rgba(16, 163, 127, 0.08) !important;
+  transform: scale(1.03);
+}
+
+/* Efecto hover en las cards de arquitectura y modelos */
+.hover-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 20px rgba(16, 163, 127, 0.15);
+}
+
+/* ============================================
+   TOKENIZADOR (agregado en la columna derecha)
+   ============================================ */
+
+.token-simulator-box {
+  margin-top: 16px;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(16, 163, 127, 0.3);
+  border-radius: 12px;
+}
+
+.token-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--c-muted);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.token-input-field {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.token-input-field:focus {
+  outline: none;
+  border-color: rgba(16, 163, 127, 0.6);
+  box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.1);
+}
+
+.token-output-box {
+  min-height: 60px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.token-hint {
+  font-size: 0.75rem;
+  color: var(--c-dim);
+}
+
+.token-item {
+  display: inline-block;
+  padding: 4px 8px;
+  background: rgba(16, 163, 127, 0.2);
+  border: 1px solid rgba(16, 163, 127, 0.4);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: #afffe6;
+  font-family: 'Courier New', monospace;
+  animation: tokenPop 0.3s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+@keyframes tokenPop {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   PANEL DE DETALLES DEL FLUJO
+   ============================================ */
+
+.flow-detail-box {
+  margin-top: 16px;
+  padding: 16px;
+  background: rgba(16, 163, 127, 0.08);
+  border: 1px solid rgba(16, 163, 127, 0.3);
+  border-radius: 12px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flow-detail-text {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5rem;
+  color: #fff;
+}
+
+/* ============================================
+   CHAT MEJORADO - Indicador de "escribiendo"
+   ============================================ */
+
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 10px 16px;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--c-green);
+  border-radius: 50%;
+  animation: typingDot 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typingDot {
+  0%, 60%, 100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+}
+
+/* Animación suave de entrada de mensajes */
+.mini-chat-row {
+  animation: messageSlide 0.4s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+@keyframes messageSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll suave en el chat */
+.mini-chat-window {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   MEJORAS DE ACCESIBILIDAD
+   ============================================ */
+
+/* Focus visible para teclado */
+.interactive-step:focus-visible,
+.clickable-flow:focus-visible,
+.hover-card:focus-visible {
+  outline: 2px solid var(--c-green);
+  outline-offset: 2px;
+}
+
+.token-input-field:focus-visible,
+.mini-chat-input:focus-visible {
+  outline: 2px solid var(--c-green);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   RESPONSIVO - Ajustes móviles
+   ============================================ */
+
+@media (max-width: 800px) {
+  .interactive-step:hover {
+    transform: translateX(3px);
+  }
+  
+  .clickable-flow:hover {
+    transform: scale(1.01);
+  }
+  
+  .hover-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ============================================
+   MODALES DE ARQUITECTURA
+   ============================================ */
+
+.modal-overlay {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  padding: 20px;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container {
+  position: relative;
+  background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.08) 0%, rgba(14, 17, 22, 0.95) 70%);
+  border: 1px solid rgba(16, 163, 127, 0.4);
+  border-radius: 20px;
+  max-width: 900px;
+  width: 100%;
+  padding: 32px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.9), 0 0 40px rgba(16, 163, 127, 0.3);
+  animation: modalSlideUp 0.4s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: grid;
+  place-items: center;
+}
+
+.modal-close:hover {
+  background: rgba(255, 59, 48, 0.2);
+  border-color: rgba(255, 59, 48, 0.6);
+  transform: rotate(90deg);
+}
+
+.modal-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .modal-content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.modal-image-side {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(16, 163, 127, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+ margin: 28px;
+}
+
+.modal-img {
+  width: 100%;
+  max-width: 350px;     /* Tamaño máximo */
+  height: 230px;        /* Altura fija para uniformidad */
+  object-fit: cover;    /* Recorta suavemente si la imagen no encaja */
+  border-radius: 12px;  /* Bordes redondeados */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.modal-text-side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-title {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.modal-text {
+  color: var(--c-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.modal-text strong {
+  color: #afffe6;
+  font-weight: 600;
+}
+
+/* Hint para clickear */
+.fx-arch-click-hint {
+  margin: 8px 0 0;
+  font-size: 0.75rem;
+  color: var(--c-green);
+  font-weight: 500;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.modal-trigger:hover .fx-arch-click-hint {
+  opacity: 1;
+}
+
+/* ============================================
+   IMÁGENES EN MODELOS GPT
+   ============================================ */
+
+.model-image-container {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(16, 163, 127, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  margin-bottom: 12px;
+}
+
+.model-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.fx-model-card:hover .model-image {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   VIDEO EN SEGURIDAD
+   ============================================ */
+
+/* Contenedor general del grid */
+.security-grid-container {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr; /* 🔹 El video ocupa menos espacio, el texto más */
+  align-items: center;
+  gap: 16px; /* 🔹 Menor separación entre columnas */
+}
+
+/* VIDEO AJUSTADO */
+.security-video {
+  width: 100%;
+  max-width: 320px; /* tamaño que prefieras */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  object-fit: cover;
+  justify-self: center; /* centra el video en su columna */
+}
+
+/* Para pantallas pequeñas (responsive) */
+@media (max-width: 768px) {
+  .security-grid-container {
+    grid-template-columns: 1fr; /* Pila el video arriba y el texto abajo */
+  }
+
+  .security-video {
+    max-width: 100%; /* Ocupa todo el ancho disponible */
+  }
+}
+
+.security-video-box {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(16, 163, 127, 0.4);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+.security-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Ajustar el cuerpo del texto de seguridad */
+.fx-safe-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 24px;
+}
+
+/* ============================================
+   PEQUEÑAS ANIMACIONES DE CARGA
+   ============================================ */
+
+.fx-block {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Delay escalonado para múltiples elementos */
+.fx-step-card:nth-child(1) { animation-delay: 0.05s; }
+.fx-step-card:nth-child(2) { animation-delay: 0.10s; }
+.fx-step-card:nth-child(3) { animation-delay: 0.15s; }
+.fx-step-card:nth-child(4) { animation-delay: 0.20s; }
+
+.fx-arch-card:nth-child(1) { animation-delay: 0.05s; }
+.fx-arch-card:nth-child(2) { animation-delay: 0.10s; }
+.fx-arch-card:nth-child(3) { animation-delay: 0.15s; }
+
+.fx-model-card:nth-child(1) { animation-delay: 0.05s; }
+.fx-model-card:nth-child(2) { animation-delay: 0.10s; }
+.fx-model-card:nth-child(3) { animation-delay: 0.15s; }
+
+/* ============================================
+   EFECTO SUTIL EN EL BADGE DOT
+   ============================================ */
+
+.badge-dot {
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+}
