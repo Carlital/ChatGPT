@@ -134,3 +134,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+window.addEventListener('pageshow', (event) => {
+  if (typeof cleanupCurrent === 'function') cleanupCurrent();
+
+  // Forzar recarga de voces si usa speechSynthesis
+  if ('speechSynthesis' in window) {
+    try { speechSynthesis.cancel(); } catch(e) { /* noop */ }
+  
+    window.speechSynthesis.getVoices();
+    if (typeof getPreferredVoice === 'function') getPreferredVoice();
+  }
+
+
+});
+
+window.addEventListener('pagehide', () => {
+  if ('speechSynthesis' in window) {
+    try { speechSynthesis.cancel(); } catch(e) { /* noop */ }
+  }
+  if (typeof cleanupCurrent === 'function') cleanupCurrent();
+});
+

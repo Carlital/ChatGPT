@@ -10,6 +10,12 @@
 </head>
 
 <body>
+
+<video autoplay muted loop playsinline id="bg-video">
+  <source src="https://cdn.pixabay.com/video/2021/12/15/101214-657793439_large.mp4" type="video/mp4">
+</video>
+
+
   <header class="site-header">
     <nav class="nav" aria-label="Principal">
       <a class="logo" href="index.html" aria-label="ChatGPT EDU">
@@ -28,8 +34,30 @@
     </nav>
   </header>
 
-  <main class="container">
+<section class="hero-ink">
+  <video autoplay muted loop playsinline class="hero-bg">
+    <source src="https://cdn.pixabay.com/video/2017/11/02/12716-241674181_large.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
 
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="highlight-chatgpt">ChatGPT</span> para aprender, crear y pensar mejor
+    </h1>
+
+    <p class="hero-subtitle">
+      Una generación que aprende, crea y colabora con inteligencia artificial.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="capacidades.html" class="btn-glow">Explorar Capacidades</a>
+      <a href="#timeline" class="btn-glow ghost">Ver Evolución</a>
+    </div>
+  </div>
+</section>
+
+
+<main class="container">
     <section class="hero card">
       <div class="hero-grid">
         <div>
@@ -38,8 +66,8 @@
             <span>Versión educativa · GPT-5 Thinking</span>
           </div>
 
-          <h1>
-            ChatGPT para aprender, crear y pensar mejor
+          <h1><br>
+            ChatGPT
           </h1>
 
           <p class="lead">
@@ -280,65 +308,74 @@
 
   </div>
 </section>
+</br>
+  <section class="timeline" id="timeline" aria-labelledby="timeline-title">
+    <h2 class="timeline-header" id="timeline-title">Evolución del Modelo ChatGPT</h2>
 
-    <section class="timeline" id="timeline" aria-labelledby="timeline-title" style="margin-top:24px;">
-      <div class="timeline-header" id="timeline-title">Hitos del modelo</div>
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
 
-      <div class="timeline-rail" aria-hidden="true"></div>
+      <!-- 2022 -->
+      <article class="timeline-item left" data-year="2022">
+        <div class="timeline-dot"></div>
 
-      <div class="timeline-items">
-        <article class="timeline-item" data-year="2022">
-          <div class="timeline-icon" aria-hidden="true">2022</div>
-          <div class="timeline-card" style="margin-top: 1rem;">
-            <div class="timeline-head">
-              <strong>Lanzamiento público</strong>
-              <button class="timeline-toggle" aria-expanded="false" aria-controls="more-2022">Ver más</button>
-            </div>
-            <p class="timeline-lead">Primera versión abierta al público general. Millones de usuarios prueban conversación con IA.</p>
-            <div id="more-2022" class="timeline-more" aria-hidden="true">
-              <ul>
-                <li>Acceso masivo y experimentación temprana por estudiantes y profesionales.</li>
-                <li>Nuevas aplicaciones en educación y productividad.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+        <div class="timeline-media">
+          <video autoplay muted loop playsinline preload="auto">
+            <source src="https://cdn.pixabay.com/video/2023/07/06/170305-842905566_large.mp4" type="video/mp4">
+          </video>
+        </div>
 
-        <article class="timeline-item" data-year="2023">
-          <div class="timeline-icon" aria-hidden="true">2023</div>
-          <div class="timeline-card" style="margin-top: 1rem;">
-            <div class="timeline-head">
-              <strong>Salto a estudio y trabajo</strong>
-              <button class="timeline-toggle" aria-expanded="false" aria-controls="more-2023">Ver más</button>
-            </div>
-            <p class="timeline-lead">Docentes, estudiantes y equipos técnicos empiezan a integrarlo en tareas reales: resúmenes, debugging, guías paso a paso.</p>
-            <div id="more-2023" class="timeline-more" aria-hidden="true">
-              <ul>
-                <li>Propuestas de buenas prácticas en el aula.</li>
-                <li>Herramientas auxiliares para docentes y evaluadores.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+        <div class="timeline-content">
+          <h3>2022 — Lanzamiento público</h3>
+          <p>Primera versión abierta al público general. Millones de usuarios prueban conversación con IA.</p>
+          <ul>
+            <li>Acceso masivo y experimentación temprana.</li>
+            <li>Aplicaciones en educación y productividad.</li>
+          </ul>
+        </div>
+      </article>
 
-        <article class="timeline-item" data-year="2025">
-          <div class="timeline-icon" aria-hidden="true">2025</div>
-          <div class="timeline-card" style="margin-top: 1rem;">
-            <div class="timeline-head">
-              <strong>Adopción institucional</strong>
-              <button class="timeline-toggle" aria-expanded="false" aria-controls="more-2025">Ver más</button>
-            </div>
-            <p class="timeline-lead">Modelos más recientes empiezan a usarse con controles de privacidad, auditoría y planes educativos.</p>
-            <div id="more-2025" class="timeline-more" aria-hidden="true">
-              <ul>
-                <li>Integración con políticas institucionales de privacidad.</li>
-                <li>Desarrollo de cursos y recursos oficiales.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+      <!-- 2023 -->
+      <article class="timeline-item right" data-year="2023">
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-media">
+          <video autoplay muted loop playsinline preload="auto">
+            <source src="https://cdn.pixabay.com/video/2023/06/22/168312-838884100_large.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="timeline-content">
+          <h3>2023 — Salto a estudio y trabajo</h3>
+          <p>Docentes y estudiantes integran ChatGPT en sus procesos reales: resúmenes, debugging, guías paso a paso.</p>
+          <ul>
+            <li>Buenas prácticas en el aula.</li>
+            <li>Herramientas auxiliares para evaluadores.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 2025 -->
+      <article class="timeline-item left" data-year="2025">
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-media">
+          <video autoplay muted loop playsinline preload="auto">
+            <source src="https://cdn.pixabay.com/video/2023/10/01/183108-870151713_large.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="timeline-content">
+          <h3>2025 — Adopción institucional</h3>
+          <p>Modelos recientes se usan con políticas de privacidad y planes educativos formales.</p>
+          <ul>
+            <li>Integración con normas institucionales.</li>
+            <li>Desarrollo de cursos y recursos oficiales.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
 
 
   </main>
@@ -400,48 +437,23 @@
   </footer>
 
   <script src="js/script.js"></script>
-  <!-- pequeño script para animar la timeline y manejar expansión -->
-  <script>
-      (function(){
-        // Animar cuando entren en viewport
-        const items = document.querySelectorAll('.timeline-item');
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach(e => {
-            if (e.isIntersecting) {
-              e.target.classList.add('in-view');
-              io.unobserve(e.target);
-            }
-          });
-        }, {threshold: 0.18});
-        items.forEach(i => io.observe(i));
 
-        // Toggle expandible accesible
-        document.querySelectorAll('.timeline-toggle').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const id = btn.getAttribute('aria-controls');
-            const panel = document.getElementById(id);
-            const expanded = btn.getAttribute('aria-expanded') === 'true';
-            btn.setAttribute('aria-expanded', String(!expanded));
-            if (!expanded) {
-              panel.setAttribute('aria-hidden','false');
-              panel.style.maxHeight = panel.scrollHeight + 'px';
-              btn.textContent = 'Cerrar';
-            } else {
-              panel.style.maxHeight = null;
-              panel.setAttribute('aria-hidden','true');
-              btn.textContent = 'Ver más';
-            }
-          });
-        });
-        // Ajustar maxHeight al resize para panels abiertos
-        window.addEventListener('resize', () => {
-          document.querySelectorAll('.timeline-more').forEach(p => {
-            if (p.parentElement.querySelector('.timeline-toggle').getAttribute('aria-expanded') === 'true') {
-              p.style.maxHeight = p.scrollHeight + 'px';
-            }
-          });
-        });
-      })();
-    </script>
+  <script>
+  (function() {
+
+    const items = document.querySelectorAll('.timeline-item');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    items.forEach(item => observer.observe(item));
+  })();
+</script>
+
+
 </body>
 </html>
